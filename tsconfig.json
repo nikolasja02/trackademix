@@ -11,6 +11,6 @@
         "skipLibCheck": true,
         "resolveJsonModule": true,
         "noEmit": true,
-        "types": ["react", "react-native", "expo-env"]
+        "types": ["react", "react-native"]
     }
 }
