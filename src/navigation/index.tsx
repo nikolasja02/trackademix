@@ -10,8 +10,10 @@ import AssignmentsScreen from "../screens/AssignmentsScreen";
 import AssignmentFormScreen from "../screens/AssignmentFormScreen";
 import GradesScreen from "../screens/GradesScreen";
 import ProfileScreen from "../screens/ProfileScreen";
+import TutorViewScreen from "../screens/TutorViewScreen";
+import InstructorAnnouncementsScreen from "../screens/InstructorAnnouncementsScreen";
+import AdminSettingsScreen from "../screens/AdminSettingsScreen";
 import { useUser } from "../providers/AuthProvider";
-import TutorViewScreen from "../screens/TutorViewScreen"; // ← ADD THIS
 
 const Stack = createNativeStackNavigator();
 
@@ -29,8 +31,9 @@ export default function RootNavigator() {
             <Stack.Screen name="EditAssignment" component={AssignmentFormScreen} options={{ title: "Assignment" }} />
             <Stack.Screen name="Grades" component={GradesScreen} />
             <Stack.Screen name="Profile" component={ProfileScreen} />
-            <Stack.Screen name="TutorView" component={TutorViewScreen} options={{ title: "Tutor View" }} /> 
-
+            <Stack.Screen name="TutorView" component={TutorViewScreen} options={{ title: "Tutor View" }} />
+            <Stack.Screen name="InstructorAnnouncements" component={InstructorAnnouncementsScreen} options={{ title: "Instructor Announcements" }} />
+            <Stack.Screen name="AdminSettings" component={AdminSettingsScreen} options={{ title: "Admin Settings" }} />
           </>
         ) : (
           <>

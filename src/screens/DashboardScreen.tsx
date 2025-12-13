@@ -158,6 +158,9 @@ export default function DashboardScreen() {
       <Button title="Grades" onPress={() => (navigation as any).navigate("Grades")} />
       <Button title="Profile" onPress={() => (navigation as any).navigate("Profile")} />
       <Button title="View Students for Tutoring" onPress={() => (navigation as any).navigate('TutorView')} />
+
+      <Button title="Instructor Announcements" onPress={() => (navigation as any).navigate('InstructorAnnouncements')} />
+      <Button title="Admin Settings" onPress={() => (navigation as any).navigate('AdminSettings')} />
       <TutoringBanner />
       <DueSoonList />
       <Button title="Sign out" onPress={() => signOut(auth)} />
