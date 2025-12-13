@@ -12,6 +12,7 @@ import GradesScreen from "../screens/GradesScreen";
 import ProfileScreen from "../screens/ProfileScreen";
 import { useUser } from "../providers/AuthProvider";
 import TutorViewScreen from "../screens/TutorViewScreen"; // ← ADD THIS
+import AdminScreen from "../screens/adminScreen"
 
 const Stack = createNativeStackNavigator();
 
@@ -30,7 +31,7 @@ export default function RootNavigator() {
             <Stack.Screen name="Grades" component={GradesScreen} />
             <Stack.Screen name="Profile" component={ProfileScreen} />
             <Stack.Screen name="TutorView" component={TutorViewScreen} options={{ title: "Tutor View" }} /> 
-
+            <Stack.Screen name="adminView" component={AdminScreen} /> 
           </>
         ) : (
           <>

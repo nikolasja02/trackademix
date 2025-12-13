@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { View, Text, Button, Alert, TouchableOpacity, StyleSheet } from "react-native";
 import { signOut } from "firebase/auth";
 import { auth, db } from "../firebase";
@@ -7,6 +7,8 @@ import DueSoonList from "../ui/DueSoonList";   // one level up to src/, then ui/
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { useUser } from "../providers/AuthProvider";
 import { useNavigation } from "@react-navigation/native";   // add this
+import { getAnnouncement } from "../storage/announcementStorage";
+
 
 export default function DashboardScreen() {
   const navigation = useNavigation();                        // get nav from hook
@@ -55,6 +57,21 @@ export default function DashboardScreen() {
   //   }
   // };
   
+  useEffect(() => {
+  const checkAnnouncement = async () => {
+    const announcement = await getAnnouncement();
+    if (!announcement) return;
+
+    Alert.alert(
+      announcement.title,
+      announcement.message,
+      [{ text: "OK" }]
+    );
+  };
+
+  checkAnnouncement();
+}, []);
+
 
   const seedDemoData = async () => {
   try {
@@ -158,6 +175,7 @@ export default function DashboardScreen() {
       <Button title="Grades" onPress={() => (navigation as any).navigate("Grades")} />
       <Button title="Profile" onPress={() => (navigation as any).navigate("Profile")} />
       <Button title="View Students for Tutoring" onPress={() => (navigation as any).navigate('TutorView')} />
+      <Button title="admin" onPress={() => (navigation as any).navigate("adminView")} />
       <TutoringBanner />
       <DueSoonList />
       <Button title="Sign out" onPress={() => signOut(auth)} />
